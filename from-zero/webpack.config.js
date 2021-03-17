@@ -1,5 +1,3 @@
-
-
 const path = require("path");
 // export default {
 module.exports = {
@@ -10,16 +8,16 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/',
     },
-    // resolve: {
-    //     extensions: ['.js','.jsx']
-    // },
-    // devServer: {
-    //     historyApiFallback: true
-    // },
-    // module: {
-    //     rules: [{
-    //         test: /\.jsx?/,
-    //         loader:'babel-loader'
-    //     }]
-    // }
+    resolve: {
+        extensions: ['.js','.jsx']
+    },
+    devServer: {
+        historyApiFallback: true
+    },
+    module: {
+        rules: [{
+            test: /\.jsx?/,
+            loader:'babel-loader'
+        }]
+    }
 }

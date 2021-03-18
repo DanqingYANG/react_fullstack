@@ -4,14 +4,26 @@ import {store} from '../store'
 
 import {ConnectedDashboard} from './Dashboard'
 
+import {Router, Route} from 'react-router-dom'
+import {history} from '../store/history'
+
+import {ConnectedNavigation} from './Navigation'
+
 export const Main = (props) => {
     return (
-        <Provider store={store}>
-            <div>
-                {/* Dashboard goes here */}
-                <ConnectedDashboard></ConnectedDashboard>
-            </div>
-        </Provider>
+        <Router history= {history}>
+            <Provider store={store}>
+                <div>
+                    {/* Dashboard goes here */}
+                    {/* <ConnectedDashboard/> */}
+                    <ConnectedNavigation/>
+                    <Route
+                        exact
+                        path = "/dashboard"
+                        render={() => (<ConnectedDashboard/>)}/>
+                </div>
+            </Provider>
+        </Router>
     )
 }
 

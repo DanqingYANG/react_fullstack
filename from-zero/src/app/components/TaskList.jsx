@@ -1,14 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {requestTaskCreation} from '../store/mutations'
 
-export const TaskList = ({tasks, name}) => (
+export const TaskList = ({tasks, name, id, createNewTask}) => (
         <div>
             <h3>
                 {name}
             </h3>
             <div>
-                {tasks.map(task=>(<div>{task.name}</div>))}
+                {/* here we add a key to the map */}
+                {tasks.map(task=>(<div key ={task.id}>{task.name}</div>))}
             </div>
+            {/* an event */}
+            <button onClick={ () => createNewTask(id)}>something</button>
         </div>
 )
 
@@ -21,8 +25,13 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = {
-    
+const mapDispatchToProps =(dispatch, ownProps) => {
+    return{
+        createNewTask(id){
+            console.log("Creating new task",id);
+            dispatch(requestTaskCreation(id));
+        }
+    }
 }
 
 export const ConnectedTaskList= connect(mapStateToProps, mapDispatchToProps)(TaskList)

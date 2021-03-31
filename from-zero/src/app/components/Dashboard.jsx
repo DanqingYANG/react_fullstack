@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Con, ConnectedTaskList} from './TaskList'
+import { ConnectedTaskList } from './TaskList'
 //obj
 export const Dashboard = ({groups}) => (
         <div>
@@ -15,7 +15,6 @@ export const Dashboard = ({groups}) => (
 );
 
 
-
 // const mapStateToProps = (state) => ({
 //     	groups:state.groups
 // })
@@ -25,6 +24,7 @@ function mapStateToProps(state){
     	groups:state.groups
     }
 }
+
 // const mapStateToProps = ({groups})=>({groups});
 // const mapDispatchToProps = {
 // }

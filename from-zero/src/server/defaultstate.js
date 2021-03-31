@@ -1,3 +1,4 @@
+// users, groups, tasks, comments
 export const defaultState = {
     // collections
     users:[{

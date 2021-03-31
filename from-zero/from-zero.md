@@ -1,3 +1,13 @@
+# Some notes here
+
+
+
+The project is a practice project started from an empty project.
+
+a create-react-app project.
+
+
+
 **Env**
 
 * start with an empty folder
@@ -96,10 +106,11 @@
 
   jsx to js using preset-react
 
-* webpack.config.js
+* write webpack.config.js
 
-  ```
   
-  ```
 
-* 
+  
+
+
+

@@ -12,6 +12,7 @@ import {v1 as uuidV1} from 'uuid';
 export function * taskCreationSaga(){
     while(true)
     {
+        // destruction {prop1, prop2} = dict; blabla
         const {groupID} = yield take(mutations.REQUEST_TASK_CREATION);
         const ownerID = 'U1';
         const taskID =uuidV1();

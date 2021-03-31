@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {requestTaskCreation} from '../store/mutations'
+import {Link} from 'react-router-dom'
 
 export const TaskList = ({tasks, name, id, createNewTask}) => (
         <div>
@@ -9,7 +10,11 @@ export const TaskList = ({tasks, name, id, createNewTask}) => (
             </h3>
             <div>
                 {/* here we add a key to the map */}
-                {tasks.map(task=>(<div key ={task.id}>{task.name}</div>))}
+                {tasks.map(task=>(
+                    <Link to={`/task/${task.id}`}  key ={task.id} >
+                        <div>{task.name} {task.id}</div>
+                    </Link>
+                    ))}
             </div>
             {/* an event */}
             <button onClick={ () => createNewTask(id)}>something</button>

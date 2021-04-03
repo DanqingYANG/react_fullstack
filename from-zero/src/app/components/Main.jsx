@@ -5,11 +5,12 @@ import {store} from '../store'
 
 import {ConnectedDashboard} from './Dashboard'
 
-import {Router, Route} from 'react-router-dom'
+import {Router, Route, Switch} from 'react-router-dom'
 import {history} from '../store/history'
 
 import {ConnectedNavigation} from './Navigation'
 import {ConnectTaskDetail} from './TaskDetail'
+import PageNotFound from './PageNotFound.jsx'
 
 export const Main = (props) => {
     return (
@@ -19,14 +20,16 @@ export const Main = (props) => {
                     {/* Dashboard goes here */}
                     {/* <ConnectedDashboard/> */}
                     <ConnectedNavigation/>
-                    <Route
-                        exact
-                        path = "/dashboard"
-                        render={() => (<ConnectedDashboard/>)}/>
-                    <Route
-                        exact
-                        path = "/task/:id"
-                        render={({match}) => (<ConnectTaskDetail match={match} />)}/>
+                    <Switch>
+                        <Route
+                            exact
+                            path = "/dashboard"
+                            render={() => (<ConnectedDashboard/>)}/>
+                        <Route
+                            path = "/task/:id"
+                            render={({match}) => (<ConnectTaskDetail match={match} />)}/>
+                        <Route render={()=>(<PageNotFound/>)}/> 
+                    </Switch>
                 </div>
             </Provider>
         </Router>

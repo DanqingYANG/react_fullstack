@@ -22,10 +22,10 @@ export const setTaskCompletion = (id, isComplete = true)=>({
     isComplete
 });
 
-export const setTaskGroup = (taskID, groupI)=>({
+export const setTaskGroup = (taskID, groupID)=>({
     type:SET_TASK_GROUP,
     taskID,
-    groupI
+    groupID
 });
 
 export const setTaskName = (taskID, name)=>({

@@ -6,7 +6,8 @@ import { createLogger } from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 const sagaMiddleware = createSagaMiddleware();
 
-import * as sagas from './sagas.mock';
+// import * as sagas from './sagas.mock';
+import * as sagas from './sagas';
 import * as mutations from './mutations';
 
 
@@ -58,7 +59,8 @@ export const store = createStore(
     // function reducer(state = defaultState, action){
     //     return state;
     // },
-    
+    // here is something we need when a dev tool is added
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     // middleware
     applyMiddleware(createLogger(), sagaMiddleware)
 );

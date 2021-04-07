@@ -8,9 +8,9 @@ let app= express();
 
 app.listen(port, console.log("server listening on port ", port));
 // request, response
-// app.get('/',(req, res)=>{
-//     res.send("Hello world.");
-// });
+app.get('/',(req, res)=>{
+    res.send("Hello world.");
+});
 //var bodyParser = require('body-parser');
 app.use(bodyParser.json()); //utilizes the body-parser package
 
@@ -43,7 +43,9 @@ export const updateTask = async task=>{
 };
 
 app.post('/task/new', async(req,res)=>{
+    console.log("I am here!")
     let task  = req.body.task;
+    console.log(task)    
     await addNewTask(task);
     // 200 is ok
     res.status(200).send(); 

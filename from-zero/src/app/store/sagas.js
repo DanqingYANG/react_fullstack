@@ -36,7 +36,7 @@ export function * taskModificationSage()
     {
         // Declarative Effects, yield is something like iterator, we use next() to get next iterator
         const task = yield take([mutations.SET_TASK_NAME, mutations.SET_TASK_GROUP, mutations.SET_TASK_COMPLETE]);
-
+        console.log("some", take([mutations.SET_TASK_NAME, mutations.SET_TASK_GROUP, mutations.SET_TASK_COMPLETE]));
         const { res } = yield axios.post(url + `/task/update`, {
             task:{
                 id: task.taskID,
@@ -45,5 +45,6 @@ export function * taskModificationSage()
                 isComplete:task.isComplete
             }
         });
+        console.log("Got response", task);
     }
 }

@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+    <!--inserted js scr -->
+    <script src="myScript1.js"></script>
+    <script src="myScript2.js"></script>
+
+    <h4>JavaScript Html Example: JavaScript can change HTML content.</h4>
+    <p id="demo1">Demo1:</p>
+    <!--Js file: change content of element "demo1"-->
+    <button type="button" onclick=JsFunction()>JS-basic.js myFunction()</button>
+
+
+    <p id="demo2">Demo2:</p>
+    <!--innerHTML change content of element "demo1"-->
+    <button type="button" onclick="document.getElementById('demo2').innerHTML = 'use Js to change content by innerHtml!'">JavaScript can change HTML content.</button>
+
+    <p id="demo3">Demo3:</p>
+    <script>
+        function myFunction() {
+            document.getElementById("demo3").innerHTML = "Paragraph changed.";
+        }
+    </script>
+    <button type="button" onclick=myFunction()>ForEach</button>
+
+    <p id="demo4">Demo4:</p>
+    <button type="button" onclick=FruitFunction(3)>ForEach</button>
+
+    
+    <h4>Comment Example: JavaScript can change HTML content.</h4>
+    <!-- following code WON'T work -->
+    <div>
+        <!--
+        <script>
+            window.alert('Comment1');
+        </script>
+        -->
+    </div>
+
+    <div>
+        <script> <!--window.alert('Comment2');--> </script>
+    </div>
+
+    
+    
+    <button onclick="window.print()">Print this page</button>
+
+    <h3>JavaScript Array.forEach()</h3>
+
+    <p>Calls a function once for each array element.</p>
+
+    <script>
+        var txt = "";
+        var numbers = [45, 4, 9, 16, 25];
+        numbers.forEach(myFunction);
+        document.getElementById("demo").innerHTML = txt;
+
+        function myFunction(value, index, array) {
+            txt = txt + value + "<br>";
+        }
+    </script>
+
+</body>
+
+</html>

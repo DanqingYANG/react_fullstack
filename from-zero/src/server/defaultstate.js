@@ -1,14 +1,21 @@
+import md5 from "md5";
+
 // users, groups, tasks, comments
 export const defaultState = {
     // collections
+    session : {
+         authenticated : true
+        },
     users:[{
         id:"U1",
         name:"Dev",
-        friends:[`U2`]
+        friends:[`U2`],
+        passwordHash: md5("Tuples")
     },{
         id:"U2",
         name:"C. Eeyo",
-        friends:[]
+        friends:[],
+        passwordHash: md5("Profiting")
     }],
     groups:[{
         name:"To Do",

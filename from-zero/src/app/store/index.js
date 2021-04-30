@@ -13,6 +13,15 @@ import * as mutations from './mutations';
 
 export const store = createStore(
     combineReducers({
+        // {} is for signup page, when defaultState.session is empty.
+        session(session = defaultState.session || {}){
+            console.log("I am here:");
+            console.log(session.authenticated);
+            return session;
+        },
+        // session(session = defaultState.session){
+        //     return session;
+        // },
         tasks(tasks = defaultState.tasks, action){
             switch(action.type){
                 case mutations.CREATE_TASK:
@@ -23,7 +32,7 @@ export const store = createStore(
                         group: action.groupID,
                         owner: action.ownerID,
                         isComplete: false
-                    }]
+                    }];
                 case mutations.SET_TASK_COMPLETE:
                     return tasks.map(task=>{
                         return (task.id === action.taskID) ?

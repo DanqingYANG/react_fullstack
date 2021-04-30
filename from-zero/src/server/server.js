@@ -2,15 +2,16 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { connectDB } from './connect-db';
+import './initialize-db';
 
 let port =7777;
 let app= express();
 
 app.listen(port, console.log("server listening on port ", port));
 // request, response
-app.get('/',(req, res)=>{
-    res.send("Hello world.");
-});
+// app.get('/',(req, res)=>{
+//     res.send("Hello world.");
+// });
 //var bodyParser = require('body-parser');
 app.use(bodyParser.json()); //utilizes the body-parser package
 

@@ -4,12 +4,19 @@ import {connectDB} from './connect-db';
 async function initializeDB()
 {
     let db = await connectDB();
-    for(let collectionName in defaultState)
+    let user = await db.collection(`users`).findOne({id:"U1"});
+    console.log("User?", user);
+    if(!user)
     {
-        let collection = db.collection(collectionName);
-        // mongoDB method insertMany
-        await collection.insertMany(defaultState[collectionName]);
+        for(let collectionName in defaultState)
+        {
+            console.log("initializing collection", collectionName);
+            let collection = db.collection(collectionName);
+            // mongoDB method insertMany
+            await collection.insertMany(defaultState[collectionName]);
+        }
     }
 }
+
 // Promise
 initializeDB();

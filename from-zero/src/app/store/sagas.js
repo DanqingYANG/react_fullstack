@@ -4,7 +4,8 @@ import * as mutations from './mutations';
 import {v1 as uuidV1} from 'uuid';
 import axios from 'axios';
 
-const url = "http://localhost:7777";
+// const url = "http://localhost:7777";
+const url = process.env.NODE_ENV == `production` ? `` : "http://localhost:7777"; 
 
 export function * taskCreationSaga(){
     while(true)

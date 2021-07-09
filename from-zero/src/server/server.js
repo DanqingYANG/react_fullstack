@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { connectDB } from './connect-db';
+import path from 'path';
 
-let port =7777;
+let port =process.env.PORT || 7777;
 let app= express();
 
 app.listen(port, console.log("server listening on port ", port));
@@ -17,7 +18,15 @@ app.use(bodyParser.json()); //utilizes the body-parser package
 app.use(
     cors(),
 )
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended:true})
+)
+
+if(process.env.NODE_ENV == 'production') {
+    app.use(express.static(path.resolve(__dirname,'../../dist')));
+    app.get('/*',(req, res) => {
+        res.sendFile(path.resolve('index.html'));
+    });
+}
 
 
 // here, insert a task
